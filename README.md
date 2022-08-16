@@ -19,21 +19,29 @@ Reviews left by customers contain both text reivews (the meat of the review) in 
 
 ## Data Preparation
 
-**Talk about text pre processing steps for reviews. The target variable for the model is Positive_Sentiment. The only variable needed for my model is Review_Text, which could come from any source. Prior to running the inputed data through the model, a function will perform text preprocessing steps. 
+**Talk about text pre processing steps for reviews. CREATE PREPROCESSING FUNCTION TO RUN DATA THROUGH!!!
+
+I created two separate datasets, one with additional stop words removed and one that did not remove any additional stop words. LINK TO DIFFERENT DATASETS. 
+
+The target variable for the model is Positive_Sentiment. The only variable needed for my model is Review_Text, which could come from any source. Prior to running the inputed data through the model, a function will perform text preprocessing steps. 
 
 ## Methods
 
 I utilized a Dummy Classifer for the initial model, which returned an accuracy score of of 77% by predicting the majority label for each observation. I iterated through the following model algorithms to assess which models to further explore: MultinomialNB(), LogisticRegression(), KNeighborsClassifier(), DecisionTreeClassifier(), XGBoost(), and RandomForestClassifier(). The results were based on cross validation and returning the accuracy score for each model. The top 3 models according to accuracy were LogisticRegression(), XGBoost(), and RandomForestClassifier(). Based on these results, I chose those 3 models to explore further.
 
-I ran multiple grid searchs to test hyperparameters for LogisticRegression(), XGBoost(), and RandomForestClassifier(). The best model based on RMSE was an SVD model with the following paramenters specified: (n_factors=2, n_epochs=20, biased=True).
+I ran multiple grid searchs to test hyperparameters for LogisticRegression(), XGBoost(), and RandomForestClassifier(). I ran multiple grid searches with both the dataset without additional stop words and with additional stop words to see which dataset produced better results. My dataset without additional stop words removed produced better results on all models. 
+
+The best model based on RMSE was an SVD model with the following paramenters specified: (n_factors=2, n_epochs=20, biased=True).
 
 
-## Final Model
+## Final Model/Evaluation
 
 Our final model allows us to input the unique reviewerID and number of recommendations we would like the model to return. The model then returns the requested number of items, including the ASIN, Product Name, Description, Image, and predicted_rating. Recommended products are ordered from the highest predicted_rating to the lowest.
 
-## Final Model Evaluation
 The final recommendation model using  SVD yielded a RMSE of 1.08 meaning that, on average, our predicted review scores for Amazon buyers were 1.08 points off of the true value of review scores. This score is more than half a point drop from our baseline model. On a review scale of 1- 5, we believe that is a significant improvement. 
+
+## Classifying New Data
+In order to obtain new data, I utilized Twitter's API and made API calls to obtain tweets that were related to women's clothing items. Specifically, I made queries directed @ZARA and @h&m that included words such as "dress," "shirt," and "clothing." I then ran these tweets through a preprocessing function so they could be run through my model. My model is able to return a classification for each tweet along with probability of each class (0 or 1). 
 
 ## Limitations and Next Steps
 While our model optimizes for minimizing the RMSE of predicted reviews, it has its limitations. First, our dataset was skewed towards higher ratings as nearly 60% of all reviews were rated 5 points. This in turn skews our predicted values higher. While this may not matter when grabbing the highest rated products, it certainly would affect our lower rated items. We suggest looking into whether these high ratings are a product of the dataset we used, or are consistent with Amazon buyer behavior. 
