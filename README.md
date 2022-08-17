@@ -75,6 +75,7 @@ The Amazon marketing team can implement our recommendation tools quickly and wit
 │   ├── data_modeling_rating_prediction.ipynb
 │   ├── data_modeling_sentiment_prediction.ipynb
 │   ├── data_no_additional_stopwords.ipynb
+│   ├── model_with_tweets.ipynb
 │   ├── twitter_api_exploration.ipynb
 ├── .gitignore
 ├── LICENSE
