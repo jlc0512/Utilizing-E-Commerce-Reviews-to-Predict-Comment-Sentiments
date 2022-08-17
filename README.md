@@ -19,9 +19,9 @@ Reviews left by customers contain both text reivews (the meat of the review) in 
 
 ## Data Preparation
 
-**Talk about text pre processing steps for reviews. CREATE PREPROCESSING FUNCTION TO RUN DATA THROUGH!!!
+**Talk about text pre processing steps for reviews (describe function sets)
 
-I created two separate datasets, one with additional stop words removed and one that did not remove any additional stop words. LINK TO DIFFERENT DATASETS. 
+I created two separate datasets, one with additional stop words removed and one that did not remove any additional stop words. LINK TO NOTEBOOKS WITH TWO DIFFERENT DATASETS. 
 
 The target variable for the model is Positive_Sentiment. The only variable needed for my model is Review_Text, which could come from any source. Prior to running the inputed data through the model, a function will perform text preprocessing steps. 
 
@@ -58,23 +58,28 @@ The Amazon marketing team can implement our recommendation tools quickly and wit
 
 ## Repository Structure
 ```
-├── Data
-│   ├── meta_Beauty.json.gz
-│   ├── reviews_Beauty_5.json.gz
+├── data
+│   ├── Womens Clothing E-Commerce Reviews 2.csv
+│   ├── bigram_data.csv
+│   ├── final_data.csv
+│   ├── single_word_data.csv
+│   ├── tweet_dataset.csv
 ├── images
-│   ├── recommended_fragrance_products.png
-│   ├── recommended_products.png
+│   ├── recommendedIND_distribution.png
+│   ├── reviews_distribution.png
 │   ├── reviews_distribution.png
 │   ├── reviews_per_product.png
 │   ├── reviews_per_user.png
 ├── working_notebooks
-│   ├── Alex_notebook_2.ipynb
-│   ├── Alex_notebook_metadata.ipynb
-│   ├── jillian_notebook.ipynb
-│   ├── meg_notebook.ipynb
+│   ├── data_exploration_notebook.ipynb
+│   ├── data_modeling_rating_prediction.ipynb
+│   ├── data_modeling_sentiment_prediction.ipynb
+│   ├── data_no_additional_stopwords.ipynb
+│   ├── twitter_api_exploration.ipynb
 ├── .gitignore
 ├── LICENSE
 ├── README.md
-├── final_notebook.ipynb
-├── final_presentation.pdf
+├── final_data_prep.ipynb
+├── final_model_tuning.ipynb
+├── final_model_with_tweets.ipynb
 ```
