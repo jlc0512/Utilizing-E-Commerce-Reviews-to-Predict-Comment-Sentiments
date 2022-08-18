@@ -38,10 +38,19 @@ Upon analysis, I also noticed some users either had a positive rating (4 or 5) b
 Reviews left by customers contain both text reivews (the meat of the review) in conjunction with a rating. By utilizing reviews as my source, I am able to easily assign a label of Positive_Sentiment (0 being false, 1 being true) to the review text based on the rating. This helps my model learn what words are associated with a positive sentiment and what words may be more associated with a negative sentiment. I can then apply this model to texts that are not accompanied by a number rating, such as tweets, Instagram captions, blog posts, and more.
 
 ## Data Preparation
-
-**Talk about text pre processing steps for reviews (describe function sets)
-
 The initial data source did not require too much cleaning. I removed 845 entries, which made up approxmiately 3.6% of m data, because they did not include any review text. I then went on to preprocess the review text so it could be used in a model. My preprocessing steps included: tokenizing my text (breaking the reviews into separate words), removing stopwords (common words in the English language that appear often and do not carry much weight when deciding sentiment), lower casing, removing punctuation and strings with non-alphabetic properties, and finally lemmatizing text.
+
+After preprocessing, here are the top 10 words by frequency of my reviews:
+
+![Top 10 Word Frequency](./images/top_10_word_frequency.png)
+
+Here are the top 10 words of positvely-sentimented reviews:
+
+![Top 10 Positive Word Frequency](./images/top_10_positive_word_frequency.png)
+
+Here are the top 10 words of negatively-sentimented reviews:
+
+![Top 10 Negative Word Frequency](./images/top_10_negative_word_frequency.png)
 
 I created two separate datasets, one with additional stop words removed and one that did not remove any additional stop words. 
 
@@ -86,6 +95,7 @@ Finally, we noticed that the dataset often miscategorizes products in their subc
 
 The Amazon marketing team can implement our recommendation tools quickly and with ease in order to offer more individualized recommendations for users. This will increase user engagement and user purchases. Our model can also be used to market certain types of products that may be popular seasonally, such as sending out individualized Skin Care recommendations in the winter time/dry season, or Fragrance recommendations around gift-giving occassions such as Valentine's Day.
 
+
 ## Repository Structure
 ```
 ├── data
@@ -97,9 +107,9 @@ The Amazon marketing team can implement our recommendation tools quickly and wit
 ├── images
 │   ├── recommendedIND_distribution.png
 │   ├── reviews_distribution.png
-│   ├── reviews_distribution.png
-│   ├── reviews_per_product.png
-│   ├── reviews_per_user.png
+│   ├── top_10_negative_word_frequency.png
+│   ├── top_10_positive_word_frequency.png
+│   ├── top_10_word_frequency.png
 ├── working_notebooks
 │   ├── data_exploration_notebook.ipynb
 │   ├── data_modeling_rating_prediction.ipynb
