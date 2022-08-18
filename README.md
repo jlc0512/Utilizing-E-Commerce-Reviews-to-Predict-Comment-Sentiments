@@ -24,7 +24,15 @@ Data for this project was pulled from a compiled dataset of Women's E-Commerce C
 
 The review data contained 23,486 reviews. Additional variables included Clothing ID, Age, Title (of the review if there was one), Review Text, Rating, Recommended IND (whether or not the customer recommends a product), Positive Feedback Count (number of other customers who found the review positive), Division Name (categorical name of product high-level division), Department Name, and Class Name. Reviews ranged on a scale of 1-5. A majority of reviews received an overall rating of 5, which could be a limitation to the model. 
 
-**insert visualization of distribution of rating 
+![Review Distributions](./images/reviews_distribution.png)
+
+A majority of reviews also recommended the product.
+
+![Recommended IND Distributions](./images/recommendedIND_distribution.png)
+
+Upon analysis, I also noticed some users either had a positive rating (4 or 5) but did NOT recommend the product, or recommended the product but did not have a positive rating (1-3). This could be due to user error and incorrectly using the rating system, or some users who had a personal negative review but would still recommend the product for others. If I had more time, I may run my model utilizing Recommended_IND as my target and see how my results change. 
+
+**Below is an example of reviews where the rating and recommendedIND did not match up.
 
 ### Why utilize data from Reviews?
 Reviews left by customers contain both text reivews (the meat of the review) in conjunction with a rating. By utilizing reviews as my source, I am able to easily assign a label of Positive_Sentiment (0 being false, 1 being true) to the review text based on the rating. This helps my model learn what words are associated with a positive sentiment and what words may be more associated with a negative sentiment. I can then apply this model to texts that are not accompanied by a number rating, such as tweets, Instagram captions, blog posts, and more.
@@ -33,7 +41,11 @@ Reviews left by customers contain both text reivews (the meat of the review) in 
 
 **Talk about text pre processing steps for reviews (describe function sets)
 
-I created two separate datasets, one with additional stop words removed and one that did not remove any additional stop words. LINK TO NOTEBOOKS WITH TWO DIFFERENT DATASETS. 
+I created two separate datasets, one with additional stop words removed and one that did not remove any additional stop words. 
+
+[Here](./working_notebooks/data_exploration_notebook.ipynb) you can find my notebook that goes through the process of adding additional stop words. Additional stop words added include ['dress', 'fit', 'top', 'size', 'very', 'look', 'like', 'color', 'love', 'small']. As we can see, many of these stop words are generally related to how we talk about clothes and may have different meanings depending what word comes in front of or after them like "fits well" versus "does not fit."
+
+I found that my dataset that did not add any additional stop words to the preprocessing steps regulary performed better. This may be explained by my model looking at both unigrams and bigrams, meaning my model looks at both single words and word pairings, like "fit," and "not fit." 
 
 The target variable for the model is Positive_Sentiment. The only variable needed for my model is Review_Text, which could come from any source. Prior to running the inputed data through the model, a function will perform text preprocessing steps. 
 
@@ -45,7 +57,7 @@ I utilized a Dummy Classifer for the initial model, which returned an accuracy s
 
 I ran multiple grid searchs to test hyperparameters for LogisticRegression(), XGBoost(), and RandomForestClassifier(). I ran multiple grid searches with both the dataset without additional stop words and with additional stop words to see which dataset produced better results. My dataset without additional stop words removed produced better results on all models. 
 
-The best model based on RMSE was an SVD model with the following paramenters specified: (n_factors=2, n_epochs=20, biased=True).
+The best model based on accuracy was a Logistic Regression model with the following paramenters specified: (n_factors=2, n_epochs=20, biased=True).
 
 
 ## Final Model/Evaluation
@@ -58,7 +70,9 @@ The final recommendation model using  SVD yielded a RMSE of 1.08 meaning that, o
 In order to obtain new data, I utilized Twitter's API and made API calls to obtain tweets that were related to women's clothing items. Specifically, I made queries directed @ZARA and @h&m that included words such as "dress," "shirt," and "clothing." I then ran these tweets through a preprocessing function so they could be run through my model. My model is able to return a classification for each tweet along with probability of each class (0 or 1). 
 
 ## Limitations and Next Steps
-While our model optimizes for minimizing the RMSE of predicted reviews, it has its limitations. First, our dataset was skewed towards higher ratings as nearly 60% of all reviews were rated 5 points. This in turn skews our predicted values higher. While this may not matter when grabbing the highest rated products, it certainly would affect our lower rated items. We suggest looking into whether these high ratings are a product of the dataset we used, or are consistent with Amazon buyer behavior. 
+While our model optimizes accuracy of predicted sentiment of comments, it has its limitations. 
+
+First, our dataset was skewed towards higher ratings as nearly 60% of all reviews were rated 5 points. This in turn skews our predicted values higher. While this may not matter when grabbing the highest rated products, it certainly would affect our lower rated items. We suggest looking into whether these high ratings are a product of the dataset we used, or are consistent with Amazon buyer behavior. 
 
 Secondly,  our model does not handle indiscriminate reviewers - or reviewers who rate all products the same. This means that our model does not capture their preferences well. We suggest a separate survey be sent to these buyers post-purchase in an effort to determine their preferences. We could then find a way to incorporate these preferences in a future model. 
 
