@@ -60,13 +60,11 @@ I found that my dataset that did not add any additional stop words to the prepro
 
 The target variable for the model is Positive_Sentiment. The only variable needed for my model is Review_Text, which could come from any source. Prior to running the inputed data through the model, a function will perform text preprocessing steps. 
 
-**visualizations of top 10 words overall, negative sentiment, positive sentiment
-
 ## Methods
 
 I utilized a Dummy Classifer for the initial model, which returned an accuracy score of of 77% by predicting the majority label for each observation. I iterated through the following model algorithms to assess which models to further explore: MultinomialNB(), LogisticRegression(), KNeighborsClassifier(), DecisionTreeClassifier(), XGBoost(), and RandomForestClassifier(). The results were based on cross validation and returning the accuracy score for each model. The top 3 models according to accuracy were LogisticRegression(), XGBoost(), and RandomForestClassifier(). Based on these results, I chose those 3 models to explore further.
 
-I ran multiple grid searchs to test hyperparameters for LogisticRegression(), XGBoost(), and RandomForestClassifier(). I ran multiple grid searches with both the dataset without additional stop words and with additional stop words to see which dataset produced better results. My dataset without additional stop words removed produced better results on all models. 
+I ran multiple grid searchs to test hyperparameters for LogisticRegression(), XGBoost(), and RandomForestClassifier(). I ran multiple grid searches with both the dataset without additional stop words and with additional stop words to see which dataset produced better results. My dataset without additional stop words removed produced better results on all models. I utilized my dataset without additional stop words as my final dataset to compare all models with the final dataset. XGBoost() and RandomForestClassifier() models performed well on my training data, but continuted to be overfit; the results were significantly worse utilizing cross validation. While Logistic Regression models did not perform as well on training data, these models produced the best results utililzing cross validation. 
 
 The best model based on accuracy was a Logistic Regression model with the following paramenters specified: (n_factors=2, n_epochs=20, biased=True).
 
