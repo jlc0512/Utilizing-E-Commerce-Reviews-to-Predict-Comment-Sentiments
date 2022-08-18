@@ -58,7 +58,9 @@ I created two separate datasets, one with additional stop words removed and one 
 
 I found that my dataset that did not add any additional stop words to the preprocessing steps regulary performed better. This may be explained by my model looking at both unigrams and bigrams, meaning my model looks at both single words and word pairings, like "fit," and "not fit." 
 
-The target variable for the model is Positive_Sentiment. The only variable needed for my model is Review_Text, which could come from any source. Prior to running the inputed data through the model, a function will perform text preprocessing steps. 
+The target variable for the model is Positive_Rating. I created this variable utilizing the Rating column with a rating of 4-5 being classified as 1 and a rating of 1-3 being classified as 0. The only variable needed for my model is Review_Text, which could come from any source. Like the distribution for ratings, the distribution for my target is a bit skewed.
+
+![Target Distribution](./images/target_distribution.png)
 
 ## Methods
 
@@ -76,6 +78,9 @@ The final model allows us to input the unique reviewerID and number of recommend
 The final recommendation model using  SVD yielded a RMSE of 1.08 meaning that, on average, our predicted review scores for Amazon buyers were 1.08 points off of the true value of review scores. This score is more than half a point drop from our baseline model. On a review scale of 1- 5, we believe that is a significant improvement. 
 
 ## Classifying New Data
+
+Prior to running the inputed data through the model, a function will perform text preprocessing steps. 
+
 In order to obtain new data, I utilized Twitter's API and made API calls to obtain tweets that were related to women's clothing items. Specifically, I made queries directed @ZARA and @h&m that included words such as "dress," "shirt," and "clothing." I then ran these tweets through a preprocessing function so they could be run through my model. My model is able to return a classification for each tweet along with probability of each class (0 or 1). 
 
 ## Limitations and Next Steps
