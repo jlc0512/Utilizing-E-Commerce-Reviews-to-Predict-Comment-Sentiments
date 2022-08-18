@@ -5,7 +5,19 @@ Author: Jillian Clark
 For the purpose of this project, I am a Data Scientist contractor working with different Women's Fashion Brands, such as Zara and Aerie. This project aims to create a generalizable classification model to identify customer comments as having negative or positive sentiment.For demonstration purposes, I will utilize my model to classify tweets as positive or negative so the customer service teams can respond appropriately, such as responding to customer concerns in negative tweets and retweeting positive tweets. The model can be expanded to classify comments on Instagram, message boards, fashion blogs, etc.
 
 ## Business Problem
-Natural language processing (NLP) has proved to be a highly effective technology for companies to save time and money while optimizing business processes. One of the major benefits of natural language processing for businesses is the ability to process massive volumes of text across varioius outlets, such as social media platforms, blogs, comments, and so on. By utilizing a machine learning model to classify text as positive or negative, businesses can send the comments to the appropriate teams, such as Quality Assurance for negatively sentimented comments or Marketing for positively sentimented comments. Businesses can utilize this model to detect persisting issues in manufacturing and take necessary measures to implement feedback for their next clothing drops. Companies can also take the opportunity to respond to negative comments, making customers feel heard and improve brand loyalty.
+Natural language processing (NLP) has proved to be a highly effective technology for companies to save time and money while optimizing business processes. One of the major benefits of natural language processing for businesses is the ability to process massive volumes of text across varioius outlets, such as social media platforms, blogs, comments, and so on. By utilizing a machine learning model to classify text as positive or negative, businesses can send the comments to the appropriate teams, such as Quality Assurance for negatively sentimented comments or Marketing for positively sentimented comments. 
+
+### Use Cases
+Positive Comments
+- Retweet or repost from the Brand account
+- Respond to boost that comment and reach more viewers
+- Identify positive trends, such as colors or fit types, that multiple users are responding to
+- Improve brand loyalty 
+
+Negative Comments
+- Respond to help customers feel heard and solve any fixable issues
+- Identify issues with items before next drops, such as colors not photographing accurately on website or quality issues with fabric
+- Improve brand loyalty 
 
 ## Data Understanding
 Data for this project was pulled from a compiled dataset of Women's E-Commerce Clothing Reviews compiled in one CSV file. The dataset can be found [here](https://www.kaggle.com/datasets/nicapotato/womens-ecommerce-clothing-reviews). 
