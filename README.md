@@ -92,6 +92,7 @@ Finally, we noticed that the dataset often miscategorizes products in their subc
 
 The Amazon marketing team can implement our recommendation tools quickly and with ease in order to offer more individualized recommendations for users. This will increase user engagement and user purchases. Our model can also be used to market certain types of products that may be popular seasonally, such as sending out individualized Skin Care recommendations in the winter time/dry season, or Fragrance recommendations around gift-giving occassions such as Valentine's Day.
 
+
 ## Repository Structure
 ```
 ├── data
