@@ -41,6 +41,8 @@ Reviews left by customers contain both text reivews (the meat of the review) in 
 
 **Talk about text pre processing steps for reviews (describe function sets)
 
+The initial data source did not require too much cleaning. I removed 845 entries, which made up approxmiately 3.6% of m data, because they did not include any review text. I then went on to preprocess the review text so it could be used in a model. My preprocessing steps included: tokenizing my text (breaking the reviews into separate words), removing stopwords (common words in the English language that appear often and do not carry much weight when deciding sentiment), lower casing, removing punctuation and strings with non-alphabetic properties, and finally lemmatizing text.
+
 I created two separate datasets, one with additional stop words removed and one that did not remove any additional stop words. 
 
 [Here](./working_notebooks/data_exploration_notebook.ipynb) you can find my notebook that goes through the process of adding additional stop words. Additional stop words added include ['dress', 'fit', 'top', 'size', 'very', 'look', 'like', 'color', 'love', 'small']. As we can see, many of these stop words are generally related to how we talk about clothes and may have different meanings depending what word comes in front of or after them like "fits well" versus "does not fit."
