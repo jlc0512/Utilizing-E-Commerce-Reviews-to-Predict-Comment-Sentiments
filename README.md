@@ -41,12 +41,15 @@ Reviews left by customers contain both text reivews (the meat of the review) in 
 The initial data source did not require too much cleaning. I removed 845 entries, which made up approxmiately 3.6% of m data, because they did not include any review text. I then went on to preprocess the review text so it could be used in a model. My preprocessing steps included: tokenizing my text (breaking the reviews into separate words), removing stopwords (common words in the English language that appear often and do not carry much weight when deciding sentiment), lower casing, removing punctuation and strings with non-alphabetic properties, and finally lemmatizing text.
 
 After preprocessing, here are the top 10 words by frequency of my reviews:
+
 ![Top 10 Word Frequency](./images/top_10_word_frequency.png)
 
 Here are the top 10 words of positvely-sentimented reviews:
+
 ![Top 10 Positive Word Frequency](./images/top_10_positive_word_frequency.png)
 
 Here are the top 10 words of negatively-sentimented reviews:
+
 ![Top 10 Negative Word Frequency](./images/top_10_negative_word_frequency.png)
 
 I created two separate datasets, one with additional stop words removed and one that did not remove any additional stop words. 
