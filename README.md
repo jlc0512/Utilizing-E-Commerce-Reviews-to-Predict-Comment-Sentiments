@@ -110,9 +110,15 @@ From the inspection of my model, it is clear that tweets that are predicted as 0
 
 Below is an example of a positive tweet being accurately classified:
 
+![](./images/positive_tweet_correct.png)
+
 Below is an example of a negative tweet being accurately classified:
 
+![](./images/negative_tweet_correct.png)
+
 And below is an example of a negative tweet being inaccurately classified as positive:
+
+![](./images/positive_tweet_incorrect.png)
 
 Upon my inspection, there are no positive tweets being inaccurately classified as negative.
 
