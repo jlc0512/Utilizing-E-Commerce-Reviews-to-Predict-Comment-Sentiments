@@ -32,7 +32,17 @@ A majority of reviews also recommended the product.
 
 Upon analysis, I also noticed some users either had a positive rating (4 or 5) but did NOT recommend the product, or recommended the product but did not have a positive rating (1-3). This could be due to user error and incorrectly using the rating system, or some users who had a personal negative review but would still recommend the product for others. If I had more time, I may run my model utilizing Recommended_IND as my target and see how my results change. 
 
-**Below is an example of reviews where the rating and recommendedIND did not match up.
+Below are some example of reviews where the rating and recommendedIND did not match up.
+
+![](./images/positive_not_recommended.png)
+
+![](./images/positive_not_recommended2.png)
+
+![](./images/negative_recommended.png)
+
+![](./images/negative_recommended2.png)
+
+It looks as though users who rated an item positively but did not recommend the product had an overall positive experience, while users who rated an item negatively but recommended the product had a positive experience, but misrated the item. This could potentially effect the words associated with negative ratings for my model.
 
 ### Why utilize data from Reviews?
 Reviews left by customers contain both text reivews (the meat of the review) in conjunction with a rating. By utilizing reviews as my source, I am able to easily assign a label of Positive_Sentiment (0 being false, 1 being true) to the review text based on the rating. This helps my model learn what words are associated with a positive sentiment and what words may be more associated with a negative sentiment. I can then apply this model to texts that are not accompanied by a number rating, such as tweets, Instagram captions, blog posts, and more.
