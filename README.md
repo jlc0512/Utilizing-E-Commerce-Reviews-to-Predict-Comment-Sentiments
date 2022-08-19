@@ -60,7 +60,7 @@ I found that my dataset that did not add any additional stop words to the prepro
 
 Below is a WordCloud visuallizing the frequency of all words in the dataset.
 
-![WordCloud](./images/wordcloud.pngf)
+![WordCloud](./images/wordcloud.png)
 
 The target variable for the model is Positive_Rating. I created this variable utilizing the Rating column with a rating of 4-5 being classified as 1 and a rating of 1-3 being classified as 0. The only variable needed for my model is Review_Text, which could come from any source. Like the distribution for ratings, the distribution for my target is a bit skewed.
 
