@@ -68,14 +68,19 @@ I utilized a Dummy Classifer for the initial model, which returned an accuracy s
 
 I ran multiple grid searchs to test hyperparameters for LogisticRegression(), XGBoost(), and RandomForestClassifier(). I ran multiple grid searches with both the dataset without additional stop words and with additional stop words to see which dataset produced better results. My dataset without additional stop words removed produced better results on all models. I utilized my dataset without additional stop words as my final dataset to compare all models with the final dataset. XGBoost() and RandomForestClassifier() models performed well on my training data, but continuted to be overfit; the results were significantly worse utilizing cross validation. While Logistic Regression models did not perform as well on training data, these models produced the best results utililzing cross validation. 
 
-The best model based on accuracy was a Logistic Regression model with the following paramenters specified: (n_factors=2, n_epochs=20, biased=True).
+Below is a comparison of the cross validation accuracy scores across models:
 
+![Model Accuracy Scores](./images//model_accuracy_scores.png)
 
 ## Final Model/Evaluation
 
-The final model allows us to input the unique reviewerID and number of recommendations we would like the model to return. The model then returns the requested number of items, including the ASIN, Product Name, Description, Image, and predicted_rating. Recommended products are ordered from the highest predicted_rating to the lowest.
+The best model based on cross validation scores is a Logistic Regression Pipeline with the following hyperparameters tuned:
+- For TfidVectorizer: max_df=.35, max_features=3000, ngram_range=(1,2)
+- For LogisisticRegression: solver='lbfgs', C=3, max_iter=30
 
-The final recommendation model using  SVD yielded a RMSE of 1.08 meaning that, on average, our predicted review scores for Amazon buyers were 1.08 points off of the true value of review scores. This score is more than half a point drop from our baseline model. On a review scale of 1- 5, we believe that is a significant improvement. 
+The final model using Logistic Regression yielded an accuracy score of 88.27% on unseen data, meaning it correctly classified unseen data as positive or not positive over 88% of the time. The initial Dummy Classifier performed with a 77.04% accuracy, meaning I was able to improve accuracy by over 11% by utilizing and tuning a more complex model. From the confusion matrix, we can see that the model misclassified reviews that were not positive as positive almost twice as much as classified reviews that were positive as not positive. This imbalance may be explained by our starting class imbalance. 
+
+![Final Confusion Matrix](./images/final_confusion_matrix.png)
 
 ## Classifying New Data
 
@@ -83,19 +88,18 @@ Prior to running the inputed data through the model, a function will perform tex
 
 In order to obtain new data, I utilized Twitter's API and made API calls to obtain tweets that were related to women's clothing items. Specifically, I made queries directed @ZARA and @h&m that included words such as "dress," "shirt," and "clothing." I then ran these tweets through a preprocessing function so they could be run through my model. My model is able to return a classification for each tweet along with probability of each class (0 or 1). 
 
-## Limitations and Next Steps
+## Limitations
 While the final model optimizes accuracy of predicted sentiment of comments, it has its limitations. 
 
-First, the initial dataset was skewed towards higher ratings as nearly 60% of all reviews were rated 5 points. This in turn skews our predicted values higher. While this may not matter when grabbing the highest rated products, it certainly would affect our lower rated items. We suggest looking into whether these high ratings are a product of the dataset we used, or are consistent with Amazon buyer behavior. 
+- Class Imbalance: almost 80% of the reviews were coded as "positive" based on a rating of 4 or 5
+- Time to run models: running multiple GridSearchCV fits can take hours if not days
+- User error when rating items: based on some of the reviews, it appears as though users may have mixed up the ratings and utilized 1 for positive reviews or 5 for negative reviews
 
-Secondly,  our model does not handle indiscriminate reviewers - or reviewers who rate all products the same. This means that our model does not capture their preferences well. We suggest a separate survey be sent to these buyers post-purchase in an effort to determine their preferences. We could then find a way to incorporate these preferences in a future model. 
-
-Finally, we noticed that the dataset often miscategorizes products in their subcategories (haircare, skincare, etc.), which can lead our subcategory predictor to recommend misclassified products. We recommend implementing a standardized classification of subcategories when new products are added to the marketplace. 
+## Next Steps
 
 ## Conclusion
 
-The Amazon marketing team can implement our recommendation tools quickly and with ease in order to offer more individualized recommendations for users. This will increase user engagement and user purchases. Our model can also be used to market certain types of products that may be popular seasonally, such as sending out individualized Skin Care recommendations in the winter time/dry season, or Fragrance recommendations around gift-giving occassions such as Valentine's Day.
-
+In conclusion, using my generalizable model will allow women's fashion brand companies to feed comments from any web source to identify positively and negatively sentiment comments and respond appropriately. Utilizing the model will allow companies to save time and by flagging the comments for appropriate teams to respond to, such as Quality Assurance to respond to negative comments, or marketing to respond to and promote positive comments. Responding to these comments appropriately will improve products by identifying potential clothing quality issues if the same sentiment is being repeated, identify potential positive trends, boost visability by responding to comments, and improve brand loyalty by making customers feel heard.
 
 ## Repository Structure
 ```
@@ -106,8 +110,11 @@ The Amazon marketing team can implement our recommendation tools quickly and wit
 │   ├── single_word_data.csv
 │   ├── tweet_dataset.csv
 ├── images
+│   ├── final_confusion_matrix.png
+│   ├── model_accuracy_scores.png
 │   ├── recommendedIND_distribution.png
 │   ├── reviews_distribution.png
+│   ├── target_distribution.png
 │   ├── top_10_negative_word_frequency.png
 │   ├── top_10_positive_word_frequency.png
 │   ├── top_10_word_frequency.png
