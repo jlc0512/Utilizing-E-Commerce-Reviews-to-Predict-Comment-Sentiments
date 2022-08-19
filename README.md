@@ -1,4 +1,4 @@
-# Using NLP to Identify Positive and Negative Tweets for Women's Fashion Brands
+# Using NLP to Identify Positive and Negative Comments for Women's Fashion Brands
 Author: Jillian Clark
 
 ## Overview
