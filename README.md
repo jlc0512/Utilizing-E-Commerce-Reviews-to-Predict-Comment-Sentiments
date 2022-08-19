@@ -146,6 +146,11 @@ Given more time, I would expand on this project by:
 
 In conclusion, using my generalizable model will allow women's fashion brand companies to feed comments from any web source to identify positively and negatively sentiment comments and respond appropriately. Utilizing the model will allow companies to save time and by flagging the comments for appropriate teams to respond to, such as Quality Assurance to respond to negative comments, or marketing to respond to and promote positive comments. Responding to these comments appropriately will improve products by identifying potential clothing quality issues if the same sentiment is being repeated, identify potential positive trends, boost visability by responding to comments, and improve brand loyalty by making customers feel heard.
 
+### References
+The following are websites I referenced when coming up with my Business Understanding:
+[Bizibl Commerce](https://bizibl.com/commerce/article/4-reasons-you-should-respond-every-customer-review)
+[VirTasktic](https://www.virtasktic.com/social-media-comments/#:~:text=These%20types%20of%20interactions%20can,people%20bad%2Dmouthing%20your%20brand.)
+
 ## Repository Structure
 ```
 ├── data
