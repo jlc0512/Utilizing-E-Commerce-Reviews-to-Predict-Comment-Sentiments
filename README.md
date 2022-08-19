@@ -58,6 +58,10 @@ I created two separate datasets, one with additional stop words removed and one 
 
 I found that my dataset that did not add any additional stop words to the preprocessing steps regulary performed better. This may be explained by my model looking at both unigrams and bigrams, meaning my model looks at both single words and word pairings, like "fit," and "not fit." 
 
+Below is a WordCloud visuallizing the frequency of all words in the dataset.
+
+![WordCloud](./images/wordcloud.pngf)
+
 The target variable for the model is Positive_Rating. I created this variable utilizing the Rating column with a rating of 4-5 being classified as 1 and a rating of 1-3 being classified as 0. The only variable needed for my model is Review_Text, which could come from any source. Like the distribution for ratings, the distribution for my target is a bit skewed.
 
 ![Target Distribution](./images/target_distribution.png)
