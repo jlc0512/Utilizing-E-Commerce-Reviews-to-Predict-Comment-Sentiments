@@ -96,11 +96,25 @@ The final model using Logistic Regression yielded an accuracy score of 88.27% on
 
 ![Final Confusion Matrix](./images/final_confusion_matrix.png)
 
+The below visualization more clearly demonstrates the difference between positive reviews that were accurately classified versus negative reviews that were accurately classified.
+
+![](./images/class_predictions.png)
+
 ## Classifying New Data
 
 Prior to running the inputed data through the model, a function will perform text preprocessing steps. 
 
 In order to obtain new data, I utilized Twitter's API and made API calls to obtain tweets that were related to women's clothing items. Specifically, I made queries directed @ZARA and @h&m that included words such as "dress," "shirt," and "clothing." I then ran these tweets through a preprocessing function so they could be run through my model. My model is able to return a classification for each tweet along with probability of each class (0 or 1). 
+
+From the inspection of my model, it is clear that tweets that are predicted as 0 (negative) are most likely correct and need to be immediately addressed. Tweets (or other commentss) that are addressed as 1 are more likely to possibly be class 0 and will require further inspection by a human. This is most likely due to the class imbalance of my inital dataset and my model having more examples of positive reviews than negative reviews when training my model. 
+
+Below is an example of a positive tweet being accurately classified:
+
+Below is an example of a negative tweet being accurately classified:
+
+And below is an example of a negative tweet being inaccurately classified as positive:
+
+Upon my inspection, there are no positive tweets being inaccurately classified as negative.
 
 ## Limitations
 While the final model optimizes accuracy of predicted sentiment of comments, it has its limitations. 
