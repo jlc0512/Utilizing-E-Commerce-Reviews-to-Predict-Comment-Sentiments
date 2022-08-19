@@ -112,13 +112,19 @@ Below is an example of a positive tweet being accurately classified:
 
 ![](./images/positive_tweet_correct.png)
 
+This is a great example of a tweet that could be rewteeted for visability and showing a real person representing Zara's brand.
+
 Below is an example of a negative tweet being accurately classified:
 
 ![](./images/negative_tweet_correct.png)
 
+This is an example of where Zara could both reply to the tweet to rectify the situation and flag the tweet for further investigation into the barcode and warehousing process.
+
 And below is an example of a negative tweet being inaccurately classified as positive:
 
 ![](./images/positive_tweet_incorrect.png)
+
+This tweet shows why tweets being classified as positive may need a second inspection before assigning them to an appropriate response team.
 
 Upon my inspection, there are no positive tweets being inaccurately classified as negative.
 
@@ -126,10 +132,14 @@ Upon my inspection, there are no positive tweets being inaccurately classified a
 While the final model optimizes accuracy of predicted sentiment of comments, it has its limitations. 
 
 - Class Imbalance: almost 80% of the reviews were coded as "positive" based on a rating of 4 or 5
-- Time to run models: running multiple GridSearchCV fits can take hours if not days
 - User error when rating items: based on some of the reviews, it appears as though users may have mixed up the ratings and utilized 1 for positive reviews or 5 for negative reviews
 
 ## Next Steps
+
+Given more time, I would expand on this project by:
+
+- Pulling in more data, specifically negative reviews or comments to help better train my model
+- Test my model with other platforms, such as Instagram comments
 
 ## Conclusion
 
@@ -141,23 +151,34 @@ In conclusion, using my generalizable model will allow women's fashion brand com
 │   ├── Womens Clothing E-Commerce Reviews 2.csv
 │   ├── bigram_data.csv
 │   ├── final_data.csv
+│   ├── final_tweet_dataset.csv
 │   ├── single_word_data.csv
 │   ├── tweet_dataset.csv
 ├── images
+│   ├── class_predictions.png
 │   ├── final_confusion_matrix.png
 │   ├── model_accuracy_scores.png
+│   ├── negative_recommended.png
+│   ├── negative_recommended2.png
+│   ├── negative_tweet_correct.png
+│   ├── positive_not_recommended.png
+│   ├── positive_not_recommended2.png
+│   ├── positive_tweet_correct.png
+│   ├── positive_tweet_incorrect.png
 │   ├── recommendedIND_distribution.png
 │   ├── reviews_distribution.png
 │   ├── target_distribution.png
 │   ├── top_10_negative_word_frequency.png
 │   ├── top_10_positive_word_frequency.png
 │   ├── top_10_word_frequency.png
+│   ├── wordcloud.png
 ├── working_notebooks
 │   ├── data_exploration_notebook.ipynb
 │   ├── data_modeling_rating_prediction.ipynb
 │   ├── data_modeling_sentiment_prediction.ipynb
 │   ├── data_no_additional_stopwords.ipynb
 │   ├── model_with_tweets.ipynb
+│   ├── model_with_tweets2.ipynb
 │   ├── twitter_api_exploration.ipynb
 ├── .gitignore
 ├── LICENSE
