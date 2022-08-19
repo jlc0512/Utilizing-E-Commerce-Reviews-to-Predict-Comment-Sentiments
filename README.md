@@ -148,8 +148,8 @@ In conclusion, using my generalizable model will allow women's fashion brand com
 
 ### References
 The following are websites I referenced when coming up with my Business Understanding:
-[Bizibl Commerce](https://bizibl.com/commerce/article/4-reasons-you-should-respond-every-customer-review)
-[VirTasktic](https://www.virtasktic.com/social-media-comments/#:~:text=These%20types%20of%20interactions%20can,people%20bad%2Dmouthing%20your%20brand.)
+- [Bizibl Commerce](https://bizibl.com/commerce/article/4-reasons-you-should-respond-every-customer-review)
+- [VirTasktic](https://www.virtasktic.com/social-media-comments/#:~:text=These%20types%20of%20interactions%20can,people%20bad%2Dmouthing%20your%20brand.)
 
 ## Repository Structure
 ```
