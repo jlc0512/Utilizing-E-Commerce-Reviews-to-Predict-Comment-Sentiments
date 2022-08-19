@@ -92,7 +92,7 @@ The best model based on cross validation scores is a Logistic Regression Pipelin
 - For TfidVectorizer: max_df=.35, max_features=3000, ngram_range=(1,2)
 - For LogisisticRegression: solver='lbfgs', C=3, max_iter=30
 
-The final model using Logistic Regression yielded an accuracy score of 88.27% on unseen data, meaning it correctly classified unseen data as positive or not positive over 88% of the time. The initial Dummy Classifier performed with a 77.04% accuracy, meaning I was able to improve accuracy by over 11% by utilizing and tuning a more complex model. From the confusion matrix, we can see that the model misclassified reviews that were not positive as positive almost twice as much as classified reviews that were positive as not positive. This imbalance may be explained by our starting class imbalance. 
+The final model using Logistic Regression yielded an accuracy score of 88.27% on unseen data, meaning it correctly classified unseen data as positive or not positive over 88% of the time. The initial Dummy Classifier performed with a 77.04% accuracy, meaning I was able to improve accuracy by over 11% by utilizing and tuning a more complex model. From the confusion matrix, we can see that the model misclassified reviews that were not positive as positive over six times as much as classified reviews that were positive as not positive. This imbalance may be explained by our starting class imbalance. 
 
 ![Final Confusion Matrix](./images/final_confusion_matrix.png)
 
