@@ -19,6 +19,9 @@ Negative Comments
 - Identify issues with items before next drops, such as colors not photographing accurately on website or quality issues with fabric
 - Improve brand loyalty 
 
+### Why utilize data from Reviews?
+Reviews left by customers contain both text reviews (the meat of the review) in conjunction with a rating. By utilizing reviews as my source, I am able to easily assign a label of Positive_Rating (0 being false, 1 being true) to the review text based on the rating. This helps my model learn what words are associated with a positive sentiment and what words may be more associated with a negative sentiment. I can then apply this model to texts that are not accompanied by a number rating, such as tweets, Instagram captions, blog posts, and more.
+
 ## Data Understanding
 Data for this project was pulled from a compiled dataset of Women's E-Commerce Clothing Reviews compiled in one CSV file. The dataset can be found [here](https://www.kaggle.com/datasets/nicapotato/womens-ecommerce-clothing-reviews). 
 
@@ -43,9 +46,6 @@ Below are some examples of reviews where Rating and Recommended_IND did not matc
 ![](./images/negative_recommended2.png)
 
 It looks as though users who rated an item positively but did not recommend the product had an overall positive experience, while users who rated an item negatively but recommended the product had a positive experience, but incorrectly rated the item. This could potentially affect the words associated with negative ratings for my model.
-
-### Why utilize data from Reviews?
-Reviews left by customers contain both text reviews (the meat of the review) in conjunction with a rating. By utilizing reviews as my source, I am able to easily assign a label of Positive_Rating (0 being false, 1 being true) to the review text based on the rating. This helps my model learn what words are associated with a positive sentiment and what words may be more associated with a negative sentiment. I can then apply this model to texts that are not accompanied by a number rating, such as tweets, Instagram captions, blog posts, and more.
 
 ## Data Preparation
 The initial data source did not require too much cleaning. I removed 845 entries, which made up approximately 3.6% of m data, because they did not include any review text. I then went on to preprocess the review text so it could be used in a model. My preprocessing steps included: tokenizing my text (breaking the reviews into separate words), removing stop words (common words in the English language that appear often and do not carry much weight when deciding sentiment), lower casing, removing punctuation and strings with non-alphabetic properties, and finally lemmatizing text.
