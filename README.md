@@ -2,10 +2,10 @@
 Author: Jillian Clark
 
 ## Overview
-For the purpose of this project, I am a Data Scientist contractor working with different Women's Fashion Brands, such as Zara and H&M. This project aims to create a generalizable classification model to identify customer comments as having negative or positive sentiment. For demonstration purposes, I will utilize my model to classify tweets as positive or negative so the customer service teams can respond appropriately, such as responding to customer concerns in negative tweets and retweeting positive tweets. The model can be expanded to classify comments on Instagram, message boards, fashion blogs, etc.
+In this project, I am a Data Scientist contractor working with different Women's Fashion Brands, such as Zara and H&M, to classify comments as negative or positive. This project aims to create a generalizable classification model that can be fed comments from any platform, such as Twitter, Instagram, or blogs. For demonstration purposes, I will utilize my model to classify tweets as positive or negative so the customer service teams can respond appropriately, such as responding to customer concerns in negative tweets and retweeting positive tweets. 
 
 ## Business Problem
-Natural language processing (NLP) has proved to be a highly effective technology for companies to save time and money while optimizing business processes. One of the major benefits of natural language processing for businesses is the ability to process massive volumes of text across varioius outlets, such as social media platforms, blogs, comments, and so on. By utilizing a machine learning model to classify text as positive or negative, businesses can send the comments to the appropriate teams, such as Quality Assurance for negatively sentimented comments or Marketing for positively sentimented comments. Generalizability is important with the constant evolution of technology, social media, and how users choose to interact with products and brands. While one brand may receive lots of tweeets, another brand may be discussed more in the comments of their Instagram posts.
+Natural language processing (NLP) has proved to be a highly effective technology for companies to save time and money while optimizing business processes. One of the major benefits of natural language processing for businesses is the ability to process massive volumes of text across various outlets, such as social media platforms, blogs, comments, and so on. By utilizing a machine learning model to classify text as positive or negative, businesses can send the comments to the appropriate teams, such as Quality Assurance for negative comments or Marketing for positive comments. Generalizability is important with the constant evolution of technology, social media, and how users choose to interact with products and brands. While one brand may receive lots of tweets, another brand may be discussed more in the comments of their Instagram posts.
 
 ### Use Cases
 Positive Comments
@@ -32,7 +32,7 @@ A majority of reviews also recommended the product.
 
 Upon analysis, I also noticed some users either had a positive rating (4 or 5) but did NOT recommend the product, or recommended the product but did not have a positive rating (1-3). This could be due to user error and incorrectly using the rating system, or some users who had a personal negative review but would still recommend the product for others. If I had more time, I may run my model utilizing Recommended_IND as my target and see how my results change. 
 
-Below are some example of reviews where the rating and recommendedIND did not match up.
+Below are some examples of reviews where Rating and Recommended_IND did not match up.
 
 ![](./images/positive_not_recommended.png)
 
@@ -42,13 +42,13 @@ Below are some example of reviews where the rating and recommendedIND did not ma
 
 ![](./images/negative_recommended2.png)
 
-It looks as though users who rated an item positively but did not recommend the product had an overall positive experience, while users who rated an item negatively but recommended the product had a positive experience, but misrated the item. This could potentially effect the words associated with negative ratings for my model.
+It looks as though users who rated an item positively but did not recommend the product had an overall positive experience, while users who rated an item negatively but recommended the product had a positive experience, but incorrectly rated the item. This could potentially affect the words associated with negative ratings for my model.
 
 ### Why utilize data from Reviews?
-Reviews left by customers contain both text reivews (the meat of the review) in conjunction with a rating. By utilizing reviews as my source, I am able to easily assign a label of Positive_Sentiment (0 being false, 1 being true) to the review text based on the rating. This helps my model learn what words are associated with a positive sentiment and what words may be more associated with a negative sentiment. I can then apply this model to texts that are not accompanied by a number rating, such as tweets, Instagram captions, blog posts, and more.
+Reviews left by customers contain both text reviews (the meat of the review) in conjunction with a rating. By utilizing reviews as my source, I am able to easily assign a label of Positive_Rating (0 being false, 1 being true) to the review text based on the rating. This helps my model learn what words are associated with a positive sentiment and what words may be more associated with a negative sentiment. I can then apply this model to texts that are not accompanied by a number rating, such as tweets, Instagram captions, blog posts, and more.
 
 ## Data Preparation
-The initial data source did not require too much cleaning. I removed 845 entries, which made up approxmiately 3.6% of m data, because they did not include any review text. I then went on to preprocess the review text so it could be used in a model. My preprocessing steps included: tokenizing my text (breaking the reviews into separate words), removing stopwords (common words in the English language that appear often and do not carry much weight when deciding sentiment), lower casing, removing punctuation and strings with non-alphabetic properties, and finally lemmatizing text.
+The initial data source did not require too much cleaning. I removed 845 entries, which made up approximately 3.6% of m data, because they did not include any review text. I then went on to preprocess the review text so it could be used in a model. My preprocessing steps included: tokenizing my text (breaking the reviews into separate words), removing stop words (common words in the English language that appear often and do not carry much weight when deciding sentiment), lower casing, removing punctuation and strings with non-alphabetic properties, and finally lemmatizing text.
 
 After preprocessing, here are the top 10 words by frequency of my reviews:
 
@@ -66,9 +66,9 @@ I created two separate datasets, one with additional stop words removed and one 
 
 [Here](./working_notebooks/data_exploration_notebook.ipynb) you can find my notebook that goes through the process of adding additional stop words. Additional stop words added include ['dress', 'fit', 'top', 'size', 'very', 'look', 'like', 'color', 'love', 'small']. As we can see, many of these stop words are generally related to how we talk about clothes and may have different meanings depending what word comes in front of or after them like "fits well" versus "does not fit."
 
-I found that my dataset that did not add any additional stop words to the preprocessing steps regulary performed better. This may be explained by my model looking at both unigrams and bigrams, meaning my model looks at both single words and word pairings, like "fit," and "not fit." 
+I found that my dataset that did not remove any additional stop words during the preprocessing steps regularly performed better. This may be explained by my model looking at both unigrams and bigrams, meaning my model looks at both single words and word pairings, like "fit," and "not fit." 
 
-Below is a WordCloud visuallizing the frequency of all words in the dataset.
+Below is a WordCloud visualizing the frequency of all words in the dataset.
 
 ![WordCloud](./images/wordcloud.png)
 
