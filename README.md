@@ -1,6 +1,8 @@
 # Using NLP to Identify Positive and Negative Comments for Women's Fashion Brands
 Author: Jillian Clark
 
+![](./images/header.png)
+
 ## Overview
 In this project, I am a Data Scientist contractor working with different Women's Fashion Brands, such as Zara and H&M, to classify comments as negative or positive. This project aims to create a generalizable classification model that can be fed comments from any platform, such as Twitter, Instagram, or blogs. For demonstration purposes, I will utilize my model to classify tweets as positive or negative so the customer service teams can respond appropriately, such as responding to customer concerns in negative tweets and retweeting positive tweets. 
 
