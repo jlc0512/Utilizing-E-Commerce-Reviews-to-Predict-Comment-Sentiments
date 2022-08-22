@@ -78,9 +78,9 @@ The target variable for the model is Positive_Rating. I created this variable ut
 
 ## Methods
 
-I utilized a Dummy Classifer for the initial model, which returned an accuracy score of of 77% by predicting the majority label for each observation. I iterated through the following model algorithms to assess which models to further explore: MultinomialNB(), LogisticRegression(), KNeighborsClassifier(), DecisionTreeClassifier(), XGBoost(), and RandomForestClassifier(). The results were based on cross validation and returning the accuracy score for each model. The top 3 models according to accuracy were LogisticRegression(), XGBoost(), and RandomForestClassifier(). Based on these results, I chose those 3 models to explore further.
+I utilized a Dummy Classifer for the initial model, which returned an accuracy score of 77% by predicting the majority label for each observation. I iterated through the following model algorithms to assess which models to further explore: MultinomialNB(), LogisticRegression(), KNeighborsClassifier(), DecisionTreeClassifier(), XGBoost(), and RandomForestClassifier(). The results were based on cross validation and returning the accuracy score for each model. The top 3 models according to accuracy were LogisticRegression(), XGBoost(), and RandomForestClassifier(). Based on these results, I chose those 3 models to explore further.
 
-I ran multiple grid searchs to test hyperparameters for LogisticRegression(), XGBoost(), and RandomForestClassifier(). I ran multiple grid searches with both the dataset without additional stop words and with additional stop words to see which dataset produced better results. My dataset without additional stop words removed produced better results on all models. I utilized my dataset without additional stop words as my final dataset to compare all models with the final dataset. XGBoost() and RandomForestClassifier() models performed well on my training data, but continuted to be overfit; the results were significantly worse utilizing cross validation. While Logistic Regression models did not perform as well on training data, these models produced the best results utililzing cross validation. 
+I ran multiple grid searches to test hyperparameters for LogisticRegression(), XGBoost(), and RandomForestClassifier(). I ran multiple grid searches with both the dataset without additional stop words and with additional stop words to see which dataset produced better results. My dataset without additional stop words removed produced better results on all models. I utilized my dataset without additional stop words as my final dataset to compare all models with the final dataset. XGBoost() and RandomForestClassifier() models performed well on my training data, but continued to be overfit; the results were significantly worse utilizing cross validation. While Logistic Regression models did not perform as well on training data, these models produced the best results utilizing cross validation. 
 
 Below is a comparison of the cross validation accuracy scores across models:
 
@@ -102,17 +102,17 @@ The below visualization more clearly demonstrates the difference between positiv
 
 ## Classifying New Data
 
-Prior to running the inputed data through the model, a function will perform text preprocessing steps. 
+Prior to running the inputted data through the model, a function will perform text preprocessing steps. 
 
 In order to obtain new data, I utilized Twitter's API and made API calls to obtain tweets that were related to women's clothing items. Specifically, I made queries directed @ZARA and @h&m that included words such as "dress," "shirt," and "clothing." I then ran these tweets through a preprocessing function so they could be run through my model. My model is able to return a classification for each tweet along with probability of each class (0 or 1). 
 
-From the inspection of my model, it is clear that tweets that are predicted as 0 (negative) are most likely correct and need to be immediately addressed. Tweets (or other commentss) that are addressed as 1 are more likely to possibly be class 0 and will require further inspection by a human. This is most likely due to the class imbalance of my inital dataset and my model having more examples of positive reviews than negative reviews when training my model. 
+From the inspection of my model, it is clear that tweets that are predicted as 0 (negative) are most likely correct and need to be immediately addressed. Tweets (or other comments) that are addressed as 1 are more likely to possibly be class 0 and will require further inspection by a human. This is most likely due to the class imbalance of my initial dataset and my model having more examples of positive reviews than negative reviews when training my model. 
 
 Below is an example of a positive tweet being accurately classified:
 
 ![](./images/positive_tweet_correct.png)
 
-This is a great example of a tweet that could be rewteeted for visability and showing a real person representing Zara's brand.
+This is a great example of a tweet that could be retweeted for visibility and showing a real person representing Zara's brand.
 
 Below is an example of a negative tweet being accurately classified:
 
@@ -141,10 +141,11 @@ Given more time, I would expand on this project by:
 - Pulling in more data, specifically negative reviews or comments to help better train my model
 - Test my model with other platforms, such as Instagram comments
 - Creating a "neutral" target for classification
+- Deploying an app for brands to utilize 
 
 ## Conclusion
 
-In conclusion, using my generalizable model will allow women's fashion brand companies to feed comments from any web source to identify positively and negatively sentiment comments and respond appropriately. Utilizing the model will allow companies to save time and by flagging the comments for appropriate teams to respond to, such as Quality Assurance to respond to negative comments, or marketing to respond to and promote positive comments. Responding to these comments appropriately will improve products by identifying potential clothing quality issues if the same sentiment is being repeated, identify potential positive trends, boost visability by responding to comments, and improve brand loyalty by making customers feel heard.
+In conclusion, using my generalizable model will allow women's fashion brand companies to feed comments from any web source to identify positively and negatively sentiment comments and respond appropriately. Utilizing the model will allow companies to save time and by flagging the comments for appropriate teams to respond to, such as Quality Assurance to respond to negative comments, or marketing to respond to and promote positive comments. Responding to these comments appropriately will improve products by identifying potential clothing quality issues if the same sentiment is being repeated, identify potential positive trends, boost visibility by responding to comments, and improve brand loyalty by making customers feel heard.
 
 ### References
 The following are websites I referenced when coming up with my Business Understanding:
