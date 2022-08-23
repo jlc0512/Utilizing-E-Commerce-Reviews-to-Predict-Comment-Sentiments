@@ -143,6 +143,7 @@ Given more time, I would expand on this project by:
 - Pulling in more data, specifically negative reviews or comments to help better train my model
 - Test my model with other platforms, such as Instagram comments
 - Creating a "neutral" target for classification
+- Remove "not" from stopwords (may be helpful for my model when looking at bigrams)
 - Deploying an app for brands to utilize 
 
 ## Conclusion
