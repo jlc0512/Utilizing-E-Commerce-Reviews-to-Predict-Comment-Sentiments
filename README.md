@@ -141,10 +141,11 @@ While the final model optimizes accuracy of predicted sentiment of comments, it 
 Given more time, I would expand on this project by:
 
 - Pulling in more data, specifically negative reviews or comments to help better train my model
+- Create a dual classification system that first classifys comments as Spam or Not Spam, and then filters out Spam comments and classifies Not Spam as Positive or Negative
 - Test my model with other platforms, such as Instagram comments
 - Creating a "neutral" target for classification
-- Remove "not" from stopwords (may be helpful for my model when looking at bigrams)
-- Deploying an app for brands to utilize 
+- Create custom stopwords list, such as removing "not" from stopwords (may be helpful for my model when looking at bigrams)
+- Upgrade and deploy an app for brands to utilize to perform Twitter API calls based on user inputted query terms and return a dataframe with one column of tweets and one column of classification
 
 ## Conclusion
 
@@ -179,6 +180,7 @@ The following are websites I referenced when coming up with my Business Understa
 │   ├── recommendedIND_distribution.png
 │   ├── reviews_distribution.png
 │   ├── target_distribution.png
+│   ├── target_distribution_presentation.png
 │   ├── top_10_negative_word_frequency.png
 │   ├── top_10_positive_word_frequency.png
 │   ├── top_10_word_frequency.png
